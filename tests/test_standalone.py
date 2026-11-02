@@ -13,7 +13,10 @@ def test_standalone_identity_and_single_provider():
     manifest = yaml.safe_load((ROOT / "extension.yaml").read_text())
     assert manifest["extension_id"] == "flowsteward.redis"
     connections = yaml.safe_load((ROOT / "contracts/connection_types.yaml").read_text())
-    assert [item["connection_type_id"] for item in connections["connection_types"]] == ["redis"]
+    assert [item["connection_type_id"] for item in connections["connection_types"]] == [
+        "redis_database",
+        "redis",
+    ]
     assert packager().TOP_FOLDER == "flowsteward_redis"
     assert packager().EXTENSION_ID == "flowsteward.redis"
 

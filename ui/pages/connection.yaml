@@ -1,5 +1,6 @@
 page_id: connection
 title: Connections
-description: Choose the connection form matching your standalone server.
+description: Choose normal database access or isolated project state.
 components:
 - ref: "../components/redis_connection_form.yaml"
+- ref: "../components/redis_state_connection_form.yaml"
