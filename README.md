@@ -1,6 +1,6 @@
 # Redis
 
-`flowsteward.redis` 1.0.0 is a standalone host-v2 tool provider for workflow state, deduplication, counters, hashes and basic queues. Create an explicit **Redis** project connection and select it in each workflow action. The connector uses the minimal Redis-compatible Google MCP Toolbox driver. The extension has no usage billing; your database or infrastructure provider may charge separately.
+`flowsteward.redis` 1.0.1 is a standalone host-v2 tool provider for workflow state, deduplication, counters, hashes and basic queues. Create an explicit **Redis** project connection and select it in each workflow action. The connector uses the minimal Redis-compatible Google MCP Toolbox driver. The extension has no usage billing; your database or infrastructure provider may charge separately.
 
 ## Connect
 
