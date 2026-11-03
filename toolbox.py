@@ -353,7 +353,7 @@ def invoke(config, secrets, command, arguments, *, timeout_seconds):
                         "params": {
                             "protocolVersion": "2025-06-18",
                             "capabilities": {},
-                            "clientInfo": {"name": "flowsteward.redis", "version": "1.0.0"},
+                            "clientInfo": {"name": "flowsteward.redis", "version": "1.1.1"},
                         },
                     },
                     deadline,

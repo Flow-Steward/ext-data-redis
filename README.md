@@ -1,6 +1,8 @@
 # Redis
 
-`flowsteward.redis` 1.1.0 is a standalone host-v2 tool provider for normal database keys, JSON Datasets, workflow state, counters, hashes and basic queues. Create an explicit **Redis** database or project-state connection and select it in each workflow action. The connector uses the minimal Redis-compatible Google MCP Toolbox driver. The extension has no usage billing; your database or infrastructure provider may charge separately.
+`flowsteward.redis` 1.1.1 is a standalone host-v2 tool provider for normal database keys, JSON Datasets, workflow state, counters, hashes and basic queues. Create an explicit **Redis** database or project-state connection and select it in each workflow action. The connector uses the minimal Redis-compatible Google MCP Toolbox driver. The extension has no usage billing; your database or infrastructure provider may charge separately.
+
+Flow Steward platform 1.5.0 or newer is required for native JSON Datasets and artifact-free service extensions.
 
 ## Connect
 
