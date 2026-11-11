@@ -1,6 +1,6 @@
 # Redis
 
-Flow Steward extension `flowsteward.redis`, version **1.1.5**.
+Flow Steward extension `flowsteward.redis`, version **1.1.6**.
 
 Use Redis for workflow state, duplicate-event checks, counters and lightweight list processing. The extension reads and writes text keys or whole JSON values, checks existence and expiry, deletes keys, sets TTLs and increments counters. Hash actions read, write or delete fields; list actions push, pop, read a range or return the list length. Conditional SET supports create-only or update-only writes with an optional expiry, and returns whether the change applied.
 
@@ -136,3 +136,31 @@ A JSON null returns `found: true`; missing keys return `found: false`. JSON Data
 reads omit missing keys and retain rows whose value is JSON null. Invalid stored
 JSON fails. Standard delete removes the whole document. JSON writes retain durable
 effect claims, test-mode suppression, and real workflow project-scope requirements.
+
+## Automated releases
+
+CI runs on pull requests and pushes to `main`. Official releases run through the
+pinned shared GitHub Actions workflow using `.github/release-config.json` to test,
+package both Linux runtime targets, and publish the release assets automatically.
+Manual ZIP uploads are not part of the release process.
+
+After merging the version **1.1.6** update into `main`, create and push its tag:
+
+```sh
+git switch main
+git pull --ff-only
+git tag -a v1.1.6 -m "Release v1.1.6"
+git push origin v1.1.6
+```
+
+To rerun the workflow for an existing tag without moving it:
+
+```sh
+gh workflow run release.yml --ref main -f tag=v1.1.6
+```
+
+The manifest remains the source for release identity and catalog descriptions.
+The shared workflow installs the verified first-party SDK wheel before test
+dependencies. Where native payloads are absent from source, the recipe restores
+only the listed missing files from checksum-pinned published archives; the source
+packager still verifies their provenance before packaging.
