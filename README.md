@@ -1,6 +1,14 @@
 # Redis
 
-`flowsteward.redis` 1.1.2 is a standalone host-v2 tool provider for normal database keys, JSON Datasets, workflow state, counters, hashes and basic queues. Create an explicit **Redis** database or project-state connection and select it in each workflow action. The connector uses the minimal Redis-compatible Google MCP Toolbox driver. The extension has no usage billing; your database or infrastructure provider may charge separately.
+Flow Steward extension `flowsteward.redis`, version **1.1.5**.
+
+Use Redis for workflow state, duplicate-event checks, counters and lightweight list processing. The extension reads and writes text keys or whole JSON values, checks existence and expiry, deletes keys, sets TTLs and increments counters. Hash actions read, write or delete fields; list actions push, pop, read a range or return the list length. Conditional SET supports create-only or update-only writes with an optional expiry, and returns whether the change applied.
+
+Read-only Datasets expose explicit-key string, hash, list and JSON views through saved definitions, typed parameters, validation, previews and schema inference. JSON lives in ordinary string keys, so RedisJSON is not required. Normal database connections use existing keys with an optional allowed prefix; legacy project-state connections retain their scoped key names.
+
+For example, claim an event key with create-only SET and a TTL, continue only when applied is true, or push right and pop left for a basic FIFO list. Expiry does not guarantee exactly-once processing, and a popped item is removed immediately without acknowledgements or crash recovery. Connections target one standalone endpoint; cluster discovery, Sentinel, scans, arbitrary commands and blocking queue operations are unavailable.
+
+On Flow Steward 1.5.0+, create a Redis database or project-state connection with host, port, logical database, TLS settings and optional ACL username/password secrets. Use a least-privilege account; private endpoints require host administrator permission, and database connections can restrict keys with key_prefix.
 
 Flow Steward platform 1.5.0 or newer is required for native JSON Datasets and artifact-free service extensions.
 
