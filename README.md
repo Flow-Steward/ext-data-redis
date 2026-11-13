@@ -2,7 +2,7 @@
 
 See [Workflow action guide](docs/workflow-actions.md) for action selection, setup requirements and JSON field examples.
 
-Flow Steward extension `flowsteward.redis`, version **1.1.8**.
+Flow Steward extension `flowsteward.redis`, version **1.1.9**.
 
 Use Redis for workflow state, duplicate-event checks, counters and lightweight list processing. The extension reads and writes text keys or whole JSON values, checks existence and expiry, deletes keys, sets TTLs and increments counters. Hash actions read, write or delete fields; list actions push, pop, read a range or return the list length. Conditional SET supports create-only or update-only writes with an optional expiry, and returns whether the change applied.
 
@@ -146,19 +146,19 @@ pinned shared GitHub Actions workflow using `.github/release-config.json` to tes
 package both Linux runtime targets, and publish the release assets automatically.
 Manual ZIP uploads are not part of the release process.
 
-After merging the version **1.1.8** update into `main`, create and push its tag:
+After merging the version **1.1.9** update into `main`, create and push its tag:
 
 ```sh
 git switch main
 git pull --ff-only
-git tag -a v1.1.8 -m "Release v1.1.8"
-git push origin v1.1.8
+git tag -a v1.1.9 -m "Release v1.1.9"
+git push origin v1.1.9
 ```
 
 To rerun the workflow for an existing tag without moving it:
 
 ```sh
-gh workflow run release.yml --ref main -f tag=v1.1.8
+gh workflow run release.yml --ref main -f tag=v1.1.9
 ```
 
 The manifest remains the source for release identity and catalog descriptions.
