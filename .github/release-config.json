@@ -21,24 +21,5 @@
     "tests/test_toolbox.py"
   ],
   "additional_assets": [],
-  "payload_sources": [
-    {
-      "target": "linux-amd64",
-      "url": "https://github.com/Flow-Steward/ext-data-redis/releases/download/v1.1.4/flowsteward.redis-1.1.4-linux-amd64.zip",
-      "bytes": 12892092,
-      "sha256": "7eee7999c77949c5860d7640fd9f14ba1dde68c6bdaa787dd89b5f82c693930a",
-      "restore_paths": [
-        "bin/linux-amd64/toolbox"
-      ]
-    },
-    {
-      "target": "linux-arm64",
-      "url": "https://github.com/Flow-Steward/ext-data-redis/releases/download/v1.1.4/flowsteward.redis-1.1.4-linux-arm64.zip",
-      "bytes": 11506026,
-      "sha256": "9a3d473ddebc40a0a50c4358233deb6f02af55a133f0dd09837e70543c8bec2b",
-      "restore_paths": [
-        "bin/linux-arm64/toolbox"
-      ]
-    }
-  ]
+  "payload_sources": []
 }

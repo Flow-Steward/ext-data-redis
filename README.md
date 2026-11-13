@@ -2,7 +2,7 @@
 
 See [Workflow action guide](docs/workflow-actions.md) for action selection, setup requirements and JSON field examples.
 
-Flow Steward extension `flowsteward.redis`, version **1.1.7**.
+Flow Steward extension `flowsteward.redis`, version **1.1.8**.
 
 Use Redis for workflow state, duplicate-event checks, counters and lightweight list processing. The extension reads and writes text keys or whole JSON values, checks existence and expiry, deletes keys, sets TTLs and increments counters. Hash actions read, write or delete fields; list actions push, pop, read a range or return the list length. Conditional SET supports create-only or update-only writes with an optional expiry, and returns whether the change applied.
 
@@ -146,23 +146,24 @@ pinned shared GitHub Actions workflow using `.github/release-config.json` to tes
 package both Linux runtime targets, and publish the release assets automatically.
 Manual ZIP uploads are not part of the release process.
 
-After merging the version **1.1.7** update into `main`, create and push its tag:
+After merging the version **1.1.8** update into `main`, create and push its tag:
 
 ```sh
 git switch main
 git pull --ff-only
-git tag -a v1.1.7 -m "Release v1.1.7"
-git push origin v1.1.7
+git tag -a v1.1.8 -m "Release v1.1.8"
+git push origin v1.1.8
 ```
 
 To rerun the workflow for an existing tag without moving it:
 
 ```sh
-gh workflow run release.yml --ref main -f tag=v1.1.7
+gh workflow run release.yml --ref main -f tag=v1.1.8
 ```
 
 The manifest remains the source for release identity and catalog descriptions.
 The shared workflow installs the verified first-party SDK wheel before test
-dependencies. Where native payloads are absent from source, the recipe restores
-only the listed missing files from checksum-pinned published archives; the source
-packager still verifies their provenance before packaging.
+dependencies. CI builds each native payload from the reviewed source and module
+lock, then verifies its actual build information before packaging.
+
+Native CI builds Toolbox v1.17.0 from its pinned official source commit. Set `TOOLBOX_SOURCE` or `FS_TOOLBOX_SOURCE_DIR` only to an exact clean checkout. Generated native payloads and provenance are produced during CI and included in each target archive.
