@@ -16,7 +16,7 @@ from contextlib import ExitStack, contextmanager
 from pathlib import Path
 
 EXTENSION_ID = "flowsteward.redis"
-VERSION = "1.1.14"
+VERSION = "1.1.15"
 TOP_FOLDER = "flowsteward_redis"
 SOURCE_DATE_EPOCH = 1793908560
 MAX_ARCHIVE_BYTES = 50 * 1024 * 1024
